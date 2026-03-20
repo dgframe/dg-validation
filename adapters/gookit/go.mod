@@ -5,7 +5,7 @@ go 1.25.0
 
 
 require (
-	github.com/dgframe/dg-validation v0.0.0
+	github.com/dgframe/dg-validation v1.0.0
 	github.com/google/uuid v1.6.0
 	github.com/gookit/validate v1.5.6
 )
