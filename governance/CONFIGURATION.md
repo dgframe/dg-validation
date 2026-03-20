@@ -1,6 +1,6 @@
-# dg-http-validation Configuration
+# dg-validation Configuration
 
-This document outlines configuration options for the **dg-http-validation** plugin.  
+This document outlines configuration options for the **dg-validation** plugin.  
 As a sovereign contract plugin, it does not require execution or external dependencies, but implementation adapters (e.g., gookit) may provide configurable behaviors.
 
 ---
@@ -21,7 +21,7 @@ validation:
     message_format: json
 ```
 
-> The above configuration is optional. All adapters must respect the dg-http-validation contract.
+> The above configuration is optional. All adapters must respect the dg-validation contract.
 
 ---
 
@@ -52,5 +52,5 @@ validation:
 
 ## Notes
 
-- dg-http-validation **does not execute validation logic**.  
+- dg-validation **does not execute validation logic**.  
 - Configurations only influence **adapter behavior**, not the contract itself.

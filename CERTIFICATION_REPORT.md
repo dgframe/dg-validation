@@ -1,13 +1,13 @@
-# Sovereign Plugin Certification Report: `dg-http-validation`
+# Sovereign Plugin Certification Report: `dg-validation`
 
 **Status**: ✅ **PASS**  
-**Version**: `1.1.0`  
+**Version**: `1.0.0`  
 **Category**: Type A (Cross-Cutting Transport Capability)  
 **Date**: 2026-01-21
 
 ## 📋 Audit Summary
 
-`dg-http-validation` has been audited against the **Sovereign Plugin Governance Blueprint**. The plugin has been refactored to eliminate contract drift and redundancy. Interfaces are now consolidated in the canonical `contracts/` package, and all adapters implement the enriched `Result` and `Violation` interfaces.
+`dg-validation` has been audited against the **Sovereign Plugin Governance Blueprint**. The plugin has been refactored to eliminate contract drift and redundancy. Interfaces are now consolidated in the canonical `contracts/` package, and all adapters implement the enriched `Result` and `Violation` interfaces.
 
 Canonical Result-based validation contracts enforced.
 
@@ -27,17 +27,17 @@ Canonical Result-based validation contracts enforced.
 ## 🔍 Audit Evidence
 
 ### 1. Contract Consolidation
-Interfaces `Subject`, `Validator`, `Result`, and `Violation` have been moved to [contracts/validator.go](file:///Users/donni/Codespace/MyCodes/framework/dg-http-validation/contracts/validator.go). The redundant root `contracts.go` has been removed.
+Interfaces `Subject`, `Validator`, `Result`, and `Violation` have been moved to [validator.go](../dg-validation/validator.go). The redundant root `contracts.go` has been removed.
 
 ### 2. No-Op Behavior
-Verified that `NoopValidator` in [contracts/noop.go](file:///Users/donni/Codespace/MyCodes/framework/dg-http-validation/contracts/noop.go) returns `ErrCapabilityNotProvided`, as required by its Profile A2 designation.
+Verified that `NoopValidator` in [noop.go](../dg-validation/noop.go) returns `ErrCapabilityNotProvided`, as required by its Profile A2 designation.
 
 ### 3. Gookit Adaptation
-The [Gookit Adapter](file:///Users/donni/Codespace/MyCodes/framework/dg-http-validation/adapters/gookit/adapter.go) has been refactored to implement naming-consistent interfaces and provides detailed `Violation` metadata back to the application.
+The [Gookit Adapter](../dg-validation/adapters/gookit/adapter.go) has been refactored to implement naming-consistent interfaces and provides detailed `Violation` metadata back to the application.
 
 ## ⚖️ Verdict
-**`dg-http-validation` is officially Certified Sovereign.**
+**`dg-validation` is officially Certified Sovereign.**
 
 ---
-**Auditor**: Antigravity (Sovereign Governance AI)
+**Auditor**: dgframe authority
 **Blueprint**: [GOVERNANCE_BLUEPRINT.md](../../dg-core/docs/GOVERNANCE_BLUEPRINT.md)

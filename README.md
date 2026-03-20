@@ -1,8 +1,8 @@
-# dg-http-validation
+# dg-validation
 
 **The Authoritative Validation Authority for the dg Ecosystem**
 
-`dg-http-validation` is a **Sovereign Semantic Contract** under the **dg-core Kernel Authority Model**. It dictates the formal semantics, interface protocols, and behavioral invariants for all validation activities within the `dg` ecosystem. 
+`dg-validation` is a **Sovereign Semantic Contract** under the **dg-core Kernel Authority Model**. It dictates the formal semantics, interface protocols, and behavioral invariants for all validation activities within the `dg` ecosystem. 
 
 This package is **Absolute Zero**: it contains no execution logic, no external dependencies, and is entirely transport-blind.
 
@@ -21,7 +21,7 @@ Under the **Kernel Authority Model (dg-core >= v1.2)**, this package represents 
 
 ## 🛡️ The Subject Doctrine
 
-To prevent "introspection invitation" (the tendency to design contracts that assume struct reflection), `dg-http-validation` enforces the **Subject Doctrine**:
+To prevent "introspection invitation" (the tendency to design contracts that assume struct reflection), `dg-validation` enforces the **Subject Doctrine**:
 
 -   **Opaque Input**: All data to be validated is passed as an opaque **`Subject`**.
 -   **Output-Oriented**: The contract layer is authoritative over the **Result** and **Violation** semantics, but agnostic to the input format.
@@ -35,7 +35,7 @@ To prevent "introspection invitation" (the tendency to design contracts that ass
 Domain services must only depend on the `Validator` contract:
 
 ```go
-import "github.com/dgframe/dg-http-validation"
+import "github.com/dgframe/dg-validation"
 
 type UserService struct {
     // Depend on the AUTHORITY, not the implementation
@@ -50,7 +50,7 @@ func (s *UserService) CreateUser(ctx context.Context, req CreateUserRequest) err
     }
     
     if !res.Valid() {
-        // Handle results mapped to dg-http-validation semantics
+        // Handle results mapped to dg-validation semantics
         return &MyDomainError{Violations: res.Violations()}
     }
 }
@@ -66,6 +66,24 @@ func (a *GokitAdapter) Validate(ctx context.Context, data interface{}, scene ...
     // 1. Run Engine (Gokit, etc.)
     // 2. Map engine errors to dgvalidation.Violation
     // 3. Return dgvalidation.Result
+}
+```
+
+### 3. Bootstrap (Kernel Layer)
+Register the authoritative capability using the built-in Service Provider:
+
+```go
+// In app/providers/infrastructure.go
+import (
+    "github.com/dgframe/dg-validation"
+    "github.com/dgframe/dg-validation/adapters/gookit"
+)
+
+func providers() []foundation.Provider {
+    return []foundation.Provider{
+        // Inject your chosen adapter implementation into the Sovereign Provider
+        dgvalidation.NewValidationServiceProvider().WithValidator(gookit.NewAdapter()),
+    }
 }
 ```
 

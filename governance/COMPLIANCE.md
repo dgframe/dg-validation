@@ -1,14 +1,14 @@
-# dg-http-validation Compliance Declaration
+# dg-validation Compliance Declaration
 
 **Target Kernel:** dg-core >= v1.2  
-**Plugin:** dg-http-validation  
+**Plugin:** dg-validation  
 **Review Type:** Compliance Gauntlet
 
 ---
 
 ## 1. Kernel Authority Acknowledgement
 - dg-core is the sole lifecycle authority  
-- dg-http-validation is a subordinate contract plugin  
+- dg-validation is a subordinate contract plugin  
 - All call direction flows **Kernel → Plugin**  
 - Default adapter (e.g., gookit) is optional and does not change compliance
 

@@ -1,4 +1,4 @@
-# dg-http-validation Specification
+# dg-validation Specification
 
 **Target Kernel:** dg-core >= v1.2
 
@@ -6,14 +6,14 @@
 
 ## 1. Purpose
 
-dg-http-validation defines the **authoritative validation semantics** for the dg ecosystem.
+dg-validation defines the **authoritative validation semantics** for the dg ecosystem.
 
 It is a **contract-only plugin** whose sole responsibility is to describe:
 - What validation *means*
 - How validation rules are identified
 - How validation failures are expressed and propagated
 
-The dg-core kernel is authoritative. dg-http-validation exists to serve the kernel.
+The dg-core kernel is authoritative. dg-validation exists to serve the kernel.
 
 ---
 
@@ -21,7 +21,7 @@ The dg-core kernel is authoritative. dg-http-validation exists to serve the kern
 
 ### In Scope
 
-The dg-http-validation plugin MAY define:
+The dg-validation plugin MAY define:
 - Validation concepts and terminology
 - Rule identity and naming semantics
 - Field and scope addressing models
@@ -29,13 +29,13 @@ The dg-http-validation plugin MAY define:
 
 ### The Subject Doctrine
 Validation targets are represented as an opaque **Subject**.
-- dg-http-validation handles the *output* of validation (Results/Violations).
-- dg-http-validation does *not* handle the *input* structure.
+- dg-validation handles the *output* of validation (Results/Violations).
+- dg-validation does *not* handle the *input* structure.
 - Interpreting the Subject (via reflection, tags, or schema) is the **exclusive right of the Adapter**.
 
 ### Explicitly Out of Scope
 
-The dg-http-validation plugin MUST NOT:
+The dg-validation plugin MUST NOT:
 - Execute validation logic
 - Inspect structs, DTOs, or schemas
 - Use reflection or tags
@@ -53,7 +53,7 @@ The dg-core kernel:
 - Initiates validation requests
 - Receives validation results
 
-The dg-http-validation plugin:
+The dg-validation plugin:
 - Declares **validation contracts only**; no execution is performed.
 - Cannot assume execution context.
 - Cannot call the kernel.
@@ -65,7 +65,7 @@ Call direction is strictly **Kernel → Plugin**.
 
 ## 4. Forbidden Couplings (Hard Prohibitions)
 
-dg-http-validation MUST NOT reference:
+dg-validation MUST NOT reference:
 - go-playground/validator
 - Gookit/validate
 - Struct tags or annotations

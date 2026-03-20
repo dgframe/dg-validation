@@ -1,8 +1,8 @@
 
 
-# dg-http-validation Middleware Policy
+# dg-validation Middleware Policy
 
-This document outlines **middleware policy expectations** for adapters implementing dg-http-validation.  
+This document outlines **middleware policy expectations** for adapters implementing dg-validation.  
 The plugin itself does not implement middleware; it defines the governance rules for middleware behavior in transport layers.
 
 ---

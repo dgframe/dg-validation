@@ -1,8 +1,8 @@
-# dg-http-validation Certification Report
+# dg-validation Certification Report
 
-**Plugin:** dg-http-validation  
+**Plugin:** dg-validation  
 **Target Kernel:** dg-core >= v1.2  
-**Version:** v1.1.0
+**Version:** v1.0.0
 
 **Certification Status:** ✅ SOVEREIGN & CERTIFIED
 
@@ -10,7 +10,7 @@
 
 ## 1. Summary
 
-dg-http-validation has been audited and verified against **sovereign governance standards**.  
+dg-validation has been audited and verified against **sovereign governance standards**.  
 The plugin is **contract-only**, with optional default adapter (gookit) that is replaceable.  
 All core abstractions (`Validator`, `Result`, `Violation`) enforce deterministic behavior.
 
@@ -20,7 +20,7 @@ All core abstractions (`Validator`, `Result`, `Violation`) enforce deterministic
 
 1. Reviewed `SPECIFICATION.md` for contract scope and call direction.
 2. Verified `INJECTION_CONTRACT.md` for ownership boundaries and pluggable adapters.
-3. Checked `contracts/validator.go` and `contracts/noop.go` for forbidden imports and interface adherence.
+3. Checked `validator.go` and `noop.go` for forbidden imports and interface adherence.
 4. Audited `adapters/gookit/adapter.go` for optional adapter compliance and fail-fast behavior.
 5. Confirmed `provider.go` registers optional validator and does not violate contract.
 6. Reviewed governance docs (`CONFIGURATION.md`, `COMPLIANCE.md`) for completeness.

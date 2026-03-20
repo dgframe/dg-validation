@@ -2,10 +2,7 @@ module github.com/dgframe/dg-validation/adapters/gookit
 
 go 1.25.0
 
-replace (
-	github.com/dgframe/core => ../../../core
-	github.com/dgframe/dg-validation => ../..
-)
+
 
 require (
 	github.com/dgframe/dg-validation v0.0.0

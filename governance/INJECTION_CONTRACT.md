@@ -1,4 +1,4 @@
-# dg-http-validation Injection Contract
+# dg-validation Injection Contract
 
 **Target Kernel:** dg-core >= v1.2
 
@@ -6,7 +6,7 @@
 
 ## 1. Purpose
 
-This document defines the **formal injection contract** between the dg-core kernel and the dg-http-validation plugin.
+This document defines the **formal injection contract** between the dg-core kernel and the dg-validation plugin.
 
 The contract specifies:
 - Call direction and authority
@@ -21,8 +21,8 @@ The contract specifies:
 ## 2. Authority and Call Direction
 
 - The dg-core kernel is authoritative.
-- dg-http-validation is subordinate.
-- Call direction is strictly **Kernel → dg-http-validation**.
+- dg-validation is subordinate.
+- Call direction is strictly **Kernel → dg-validation**.
 
 ---
 
@@ -34,7 +34,7 @@ The contract specifies:
 - Transport mapping (HTTP, gRPC, CLI)
 - Error rendering and localization
 
-### dg-http-validation Owns
+### dg-validation Owns
 - Validation semantics
 - Rule identity model
 - **Validator**, **Result**, and **Violation** contracts
@@ -64,7 +64,7 @@ Represents a single rule failure with logical field path.
 
 ## 5. Prohibited Behaviors
 
-The dg-http-validation plugin and its adapters MUST NOT:
+The dg-validation plugin and its adapters MUST NOT:
 - Depend on external validator libraries directly
 - Assume struct-tag-based validation
 - Return HTTP status codes

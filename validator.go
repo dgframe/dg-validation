@@ -4,8 +4,6 @@ import (
 	"context"
 )
 
-const Binding = "dgvalidation.Validator"
-
 // Subject represents the opaque data being validated.
 type Subject interface{}
 

@@ -30,6 +30,12 @@ func (p *ValidationServiceProvider) Validator() Validator {
 	return p.validator
 }
 
+func (p *ValidationServiceProvider) Name() string    { return Binding }
+func (p *ValidationServiceProvider) Version() string { return Version }
+func (p *ValidationServiceProvider) Dependencies() []string {
+	return []string{}
+}
+
 // Register registers the validator capability into the container.
 func (p *ValidationServiceProvider) Register(r foundation.Registrar) error {
 	r.Bind(ValidatorBinding, func() (interface{}, error) {
